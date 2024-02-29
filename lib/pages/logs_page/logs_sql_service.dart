@@ -38,6 +38,7 @@ class LogsSqlService {
         ' and ${Constants.dateCreated} <= \'${DateUtil.formatDateYYYYMMdd(toDate)}\''
         ' and ${Constants.dateCreated} >= \'${DateUtil.formatDateYYYYMMdd(fromDate)}\''
         ' order by ${Constants.dateCreated} DESC ';
+    print('sql $sql');
     final result = await db.rawQuery(sql);
     List<LogsResponseModel> data = [];
     if (result.isNotEmpty) {

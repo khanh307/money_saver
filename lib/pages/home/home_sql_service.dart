@@ -8,6 +8,13 @@ import 'package:sqflite/sqflite.dart';
 class HomeSqlService {
   final SqlService _sqlService = SqlService();
 
+  Future<String> getPathDB() async {
+    Database db = await _sqlService.open();
+    String path = db.path;
+    db.close();
+    return path;
+  }
+
   Future<int> sum(
       {required DateTime fromDate,
       required DateTime toDate,
@@ -24,7 +31,6 @@ class HomeSqlService {
     if (result.isEmpty || result.first['total'] == null) return 0;
     return result.first['total'];
   }
-
 
   Future<int> newAccount(AccountModel data) async {
     Database db = await _sqlService.open();

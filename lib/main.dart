@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(6.0)),
             color: Colors.white,
-            surfaceTintColor: AppColors.backgroundCard),
+            surfaceTintColor: Colors.white),
         dialogTheme: const DialogTheme(
             backgroundColor: Colors.white,
             elevation: 5,

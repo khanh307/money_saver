@@ -16,6 +16,28 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tổng quan'),
+        actions: [
+          PopupMenuButton(
+            onSelected: (value) async {
+              if (value == 1) {
+                await controller.backupDB();
+              } else {
+                await controller.restoreDB();
+              }
+            },
+            surfaceTintColor: Colors.white,
+            itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+              const PopupMenuItem(
+                value: 1,
+                child: Text('Sao lưu dữ liệu'),
+              ),
+              const PopupMenuItem(
+                value: 2,
+                child: Text('Khôi phục dữ liệu'),
+              ),
+            ],
+          ),
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: () async {
@@ -58,12 +80,12 @@ class HomePage extends GetView<HomeController> {
                           const SizedBox(
                             height: 10,
                           ),
-                          const TextWidget(
-                            text: 'TRẦN QUỐC KHÁNH',
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            size: 18,
-                          ),
+                          Obx(() => TextWidget(
+                                text: controller.user.value.toUpperCase(),
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                size: 18,
+                              )),
                           const SizedBox(
                             height: 15,
                           ),

@@ -42,20 +42,20 @@ class NewExpensesPage extends GetView<NewExpensesController> {
                           Expanded(
                             flex: 2,
                             child: Obx(() => DatePickerWidget(
-                              value: controller.dateSelected.value,
-                              onChanged: (value) {
-                                controller.dateSelected.value = value;
-                              },
-                            )),
+                                  value: controller.dateSelected.value,
+                                  onChanged: (value) {
+                                    controller.dateSelected.value = value;
+                                  },
+                                )),
                           ),
                           Expanded(
                             flex: 1,
                             child: Obx(() => TimePickerWidget(
-                              value: controller.timeSelected.value,
-                              onChanged: (value) {
-                                controller.timeSelected.value = value;
-                              },
-                            )),
+                                  value: controller.timeSelected.value,
+                                  onChanged: (value) {
+                                    controller.timeSelected.value = value;
+                                  },
+                                )),
                           ),
                         ],
                       ),
@@ -161,49 +161,33 @@ class NewExpensesPage extends GetView<NewExpensesController> {
           ),
         ),
       ),
-      bottomNavigationBar: Obx(() => (controller.showKeyboardNumber.value)
-          ? Container(
+      bottomNavigationBar: Container(
+        width: Get.width,
+        color: AppColors.backgroundColor.withOpacity(0.5),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(15.0),
               width: Get.width,
-              color: Colors.white,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(15.0),
-                    width: Get.width,
-                    color: AppColors.primaryColor,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const TextWidget(
-                          text: 'Số tiền',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                        InkWell(
-                            onTap: () {
-                              controller.showKeyboardNumber.value = false;
-                            },
-                            child: const Icon(
-                              Icons.close,
-                              color: Colors.white,
-                            ))
-                      ],
-                    ),
-                  ),
-                  KeyboardNumber(
-                    controller: controller.moneyController,
-                    focusNode: controller.moneyFocusNode,
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  )
-                ],
+              color: AppColors.primaryColor,
+              child: const TextWidget(
+                text: 'Số tiền',
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
               ),
+            ),
+            const SizedBox(height: 5,),
+            KeyboardNumber(
+              controller: controller.moneyController,
+              focusNode: controller.moneyFocusNode,
+            ),
+            const SizedBox(
+              height: 10,
             )
-          : Container(
-              height: 0,
-            )),
+          ],
+        ),
+      ),
     );
   }
 }

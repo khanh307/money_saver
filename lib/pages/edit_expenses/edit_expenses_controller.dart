@@ -97,7 +97,8 @@ class EditExpensesController extends GetxController {
         money: NumberUtils.parse(moneyController.text),
         accountId: accountSelected.value!.accountId,
         categoryId: categorySelected.value!.categoryId,
-        dateCreated: model.dateCreated,
+        dateCreated: dateSelected.value.copyWith(
+            hour: timeSelected.value.hour, minute: timeSelected.value.minute),
         dateModified: DateTime.now(),
         note: noteController.text);
 

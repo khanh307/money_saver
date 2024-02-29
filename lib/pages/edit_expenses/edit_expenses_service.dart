@@ -118,12 +118,8 @@ class EditExpensesSqlService {
     if (newId > 0) {
       updateAccount(account);
     }
-    print('data new ${category.toMap()} - ${data.money}');
-    print('data old ${oldData.category!.toMap()} - ${oldData.money}');
-    int totalOld = oldData.account!.accountMoney!;
-    if (account.accountId == oldData.account!.accountId) {
-      totalOld = account.accountMoney!;
-    }
+    AccountModel oldAccount = await getAccountById(oldData.account!.accountId!);
+    int totalOld = oldAccount.accountMoney!;
     if (oldData.category!.categoryTypeId == 1) {
       totalOld -= oldData.money!;
     } else {

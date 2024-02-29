@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:money_saver/utils/const/app_colors.dart';
 import 'package:money_saver/widgets/text_widget.dart';
 
 class KeyboardNumber extends StatelessWidget {
@@ -37,7 +38,7 @@ class KeyboardNumber extends StatelessWidget {
     return Container(
       width: Get.width,
       // height: 250,
-      color: Colors.grey,
+      color: AppColors.backgroundColor.withOpacity(0.5),
       child: Column(
         children: [
           Row(
@@ -67,10 +68,14 @@ class KeyboardNumber extends StatelessWidget {
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.backspace,
-                      color: Colors.black,
+                  child: Card(
+                    margin: EdgeInsets.zero,
+                    elevation: 2,
+                    child: const Center(
+                      child: Icon(
+                        Icons.backspace,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ),
@@ -136,12 +141,16 @@ class KeyboardNumber extends StatelessWidget {
           height: 55,
           margin: const EdgeInsets.only(top: 1, bottom: 1, left: 2, right: 2),
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Colors.transparent,
           ),
-          child: Center(
-            child: TextWidget(
-              text: text,
-              fontWeight: FontWeight.bold,
+          child: Card(
+            margin: EdgeInsets.zero,
+            elevation: 2,
+            child: Center(
+              child: TextWidget(
+                text: text,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

@@ -38,7 +38,7 @@ class LogsController extends GetxController {
 
   void getDayOfMonth() async {
     fromDate = DateTime(dateNow.value.year, dateNow.value.month, 1);
-    toDate = DateTime(dateNow.value.year, dateNow.value.month + 1, 0);
+    toDate = DateTime(dateNow.value.year, dateNow.value.month + 1, 1);
   }
 
   Future sumTotal() async {

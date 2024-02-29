@@ -29,7 +29,11 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
   @override
   void initState() {
     widget.value ??= TimeOfDay.now();
-    _controller.text = '${widget.value!.hour}:0${widget.value!.minute}';
+    if (widget.value!.minute < 10) {
+      _controller.text = '${widget.value!.hour}:0${widget.value!.minute}';
+    } else {
+      _controller.text = '${widget.value!.hour}:${widget.value!.minute}';
+    }
     super.initState();
   }
 
@@ -49,7 +53,11 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
       setState(() {
         selectedDate = picked;
         widget.value = selectedDate;
-        _controller.text = '${selectedDate.hour}:${selectedDate.minute}';
+        if (selectedDate.minute < 10) {
+          _controller.text = '${selectedDate.hour}:0${(selectedDate.minute)}';
+        } else {
+          _controller.text = '${selectedDate.hour}:${(selectedDate.minute)}';
+        }
         widget.onChanged(selectedDate);
       });
     }

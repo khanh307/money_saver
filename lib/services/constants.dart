@@ -1,5 +1,7 @@
 
 class Constants {
+  static const String user = 'user';
+
   static const String typeCategory = 'TypeCategory';
   static const String categoryTypeId = 'categoryTypeId';
   static const String categoryTypeName = 'categoryTypeName';

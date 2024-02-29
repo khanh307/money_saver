@@ -16,6 +16,8 @@ class BottomNavPage extends GetView<BottomNavController> {
       bottomNavigationBar: Obx(() => BottomNavigationBar(
             currentIndex: controller.currentPage.value,
             selectedItemColor: AppColors.primaryColor,
+            unselectedItemColor: AppColors.textColor,
+            showUnselectedLabels: true,
             onTap: (value) {
               controller.changePage(value);
             },
@@ -28,6 +30,8 @@ class BottomNavPage extends GetView<BottomNavController> {
                   icon: Icon(Icons.add_box_rounded), label: 'Thêm mới'),
               BottomNavigationBarItem(
                   icon: Icon(Icons.account_balance_wallet), label: 'Nhật ký'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.local_atm), label: 'Chuyển tiền'),
             ],
           )), // Choose the nav bar style with this property.
     );

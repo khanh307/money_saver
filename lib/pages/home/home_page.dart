@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:money_saver/pages/detail/detail_page.dart';
 import 'package:money_saver/pages/home/home_controller.dart';
 import 'package:money_saver/utils/const/app_colors.dart';
 import 'package:money_saver/utils/number_utils.dart';
@@ -226,16 +227,21 @@ class HomePage extends GetView<HomeController> {
                       color: Colors.white),
                   child: Column(
                     children: [
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          TextWidget(
+                          const TextWidget(
                             text: 'Khoản chi',
                             fontWeight: FontWeight.bold,
                           ),
-                          TextWidget(
-                            text: 'Xem chi tiết',
-                            color: Colors.green,
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(DetailPage.routeName);
+                            },
+                            child: const TextWidget(
+                              text: 'Xem chi tiết',
+                              color: Colors.green,
+                            ),
                           ),
                         ],
                       ),

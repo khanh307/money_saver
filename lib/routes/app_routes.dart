@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:money_saver/bindings/all_bindings.dart';
 import 'package:money_saver/pages/bottom_nav/bottom_nav_page.dart';
+import 'package:money_saver/pages/detail/detail_page.dart';
 import 'package:money_saver/pages/edit_expenses/edit_expenses_page.dart';
 import 'package:money_saver/pages/home/home_page.dart';
 import 'package:money_saver/pages/logs_page/logs_page.dart';
@@ -11,9 +12,7 @@ class AppRoutes {
   static const String initialRoute = '/';
   static final pages = [
     GetPage(
-        name: '/',
-        page: () => const BottomNavPage(),
-        binding: AllBindings()),
+        name: '/', page: () => const BottomNavPage(), binding: AllBindings()),
     GetPage(
         name: '/home',
         page: () => const HomePage(),
@@ -37,6 +36,11 @@ class AppRoutes {
     GetPage(
         name: '/transfer',
         page: () => const TransferPage(),
+        transition: Transition.rightToLeft,
+        binding: AllBindings()),
+    GetPage(
+        name: DetailPage.routeName,
+        page: () => const DetailPage(),
         transition: Transition.rightToLeft,
         binding: AllBindings()),
   ];

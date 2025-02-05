@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:money_saver/pages/bottom_nav/bottom_nav_controller.dart';
+import 'package:money_saver/pages/detail/detail_controller.dart';
 import 'package:money_saver/pages/edit_expenses/edit_expenses_controller.dart';
 import 'package:money_saver/pages/home/home_controller.dart';
 import 'package:money_saver/pages/logs_page/logs_controller.dart';
@@ -15,5 +16,6 @@ class AllBindings extends Bindings {
     Get.lazyPut(() => LogsController());
     Get.lazyPut(() => EditExpensesController());
     Get.lazyPut(() => TransferController());
+    Get.lazyPut(() => DetailController(),);
   }
 }
